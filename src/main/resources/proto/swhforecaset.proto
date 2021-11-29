@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_package = "com.vip.grpc.supplier.warehouse.forecast";
+option java_outer_classname = "SWHForecastApis";
+
+service SWHForecastService {
+  rpc forecast(SWHForecastRequest) returns (SWHForecastResponse) {};
+}
+
+message SWHForecastRequest {
+  string vendorCode = 1;
+  string brandStoreSn = 2;
+  string firstCateId = 3;
+  uint64 secCateId = 4;
+  string thirdCateId = 5;
+  string province = 6;
+  string city = 7;
+  string region = 8;
+  string orderTime = 9;
+}
+
+message SWHForecastResponse{
+  map<string, double> probabilityOfSWH = 1;
+}

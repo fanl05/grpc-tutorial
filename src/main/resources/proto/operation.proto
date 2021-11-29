@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package com.vip.grpc.operation;
+
+service OperationService {
+  rpc calculate(OperationRequest) returns (OperationResponse);
+}
+
+message OperationRequest {
+  int32 a = 1;
+  int32 b = 2;
+  Operator operator = 3;
+}
+
+message OperationResponse {
+  int32 res = 1;
+}
+
+enum Operator {
+  ADD = 0;
+  SUBTRACT = 1;
+  MULTIPLY = 2;
+  DIVIDE = 3;
+}
